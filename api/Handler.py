@@ -63,7 +63,7 @@ def makeTweet():
 @app.route("/<path:path>")
 def catch_all(path):
     svg=makeTweet()
-    resp = Response(svg, mimetype="image/svg+xml")
+    resp = Response(svg, mimetype="image")
     resp.headers["Cache-Control"] = "s-maxage=1"
     return resp
 
