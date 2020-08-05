@@ -53,9 +53,10 @@ def TweetInfo(target):
         
 def makeTweet():
     ID = TweetInfo(username)
-    html = "<div id=\"features\"><blockquote class=\"twitter-tweet\"><a href=\"https://twitter.com/"+username+"/status/"+str(ID)+"\"></a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script> </div>"
+    #html = "<div id=\"features\"><blockquote class=\"twitter-tweet\"><a href=\"https://twitter.com/"+username+"/status/"+str(ID)+"\"></a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script> </div>"
     #grabzIt.HTMLToImage(html, options)
     #grabzIt.SaveTo("result.png")
+    html = "https://twitter.com/"+username+"/status/"+str(ID)+"\"
     return render_template("tweet.html.j2", link=html)
 
 @app.route("/", defaults={"path": ""})
