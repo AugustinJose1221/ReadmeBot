@@ -56,13 +56,15 @@ def makeTweet():
     html = "<div id=\"features\"><blockquote class=\"twitter-tweet\"><a href=\"https://twitter.com/"+username+"/status/"+str(ID)+"\"></a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script> </div>"
     #grabzIt.HTMLToImage(html, options)
     #grabzIt.SaveTo("result.png")
-    return html
+    return render_template("tweet.html.j2", link=html)
 
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>")
 def catch_all(path):
-    link=makeTweet()
-    return render_template("tweet.html.j2", link=link)
+    svg=makeTweet()
+    resp = Response(svg, mimetype="image/svg+xml")
+    resp.headers["Cache-Control"] = "s-maxage=1"
+    return resp
 
 if __name__ == "__main__":
     app.run(debug=True)
