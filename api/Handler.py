@@ -17,11 +17,11 @@ load_dotenv(find_dotenv())
 import os
 import random
 
-consumer_key = "RyBVJw1i9AZ44ozeW4ssAtQlo"
-consumer_secret = "dT0umKtNS1Qw62EAwRYcXVd8oxpM2kBw4cV45OB01JiLLyxnEx"
-key = "744132492559454208-X2MH4jHmeXrJw8dthqydzMYZOKfVtnQ"
-secret = "jPF3w8LrocJIgCZaz9a974QBjSc7HI1q1xOSng8G9RKDj"
-username = "augustinjose121"
+consumer_key = str(os.getenv("CONSUMER_KEY"))
+consumer_secret = str(os.getenv("CONSUMER_SECRET"))
+key = str(os.getenv("ACCESS_KEY"))
+secret = str(os.getenv("ACCESS_SECRET"))
+username = str(os.getenv("USERNAME"))
 app = Flask(__name__)
 
 
