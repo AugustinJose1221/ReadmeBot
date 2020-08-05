@@ -44,8 +44,9 @@ def makeTweet():
     #print(link)
     return link #render_template("test.html", link=link)
     
-@app.route("/")
-def catch_all():
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def catch_all(path):
     return render_template("test.html", link=makeTweet())
 
 if __name__ == "__main__":
