@@ -10,8 +10,8 @@ Created on Wed Aug  5 10:40:17 2020
 from flask import Flask, Response, jsonify, render_template, request, redirect, url_for
 import tweepy as tw
 
-#from dotenv import load_dotenv, find_dotenv
-#load_dotenv(find_dotenv())
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 
 import os
